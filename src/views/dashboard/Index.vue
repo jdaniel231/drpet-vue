@@ -1,21 +1,30 @@
 <template>
-  <div class="dashboardIndex">
+  <v-app>
     <Navbar />
-    <v-icon>mdi-coffee</v-icon>
-    <Sidebar />
-  </div>
+    <Sidebar  />
+    <AppView />
+  </v-app>
 </template>
 
 <script>
-import Navbar from '../partials/navbar/Index.vue'
-import Sidebar from '../partials/navbar/Index.vue'
+import Navbar from '../dashboard/partials/navbar/Index.vue'
+import Sidebar from '../dashboard/partials/sidebar/Index.vue'
+import AppView from '../dashboard/partials/appView/Index.vue'
 
 export default {
   name: 'dashboardIndex',
+  data: () => ({
+    drawer: false
+  }),
   components: {
     Navbar,
     Sidebar,
-  }
- 
+    AppView,
+  },
+  methods: {
+    toogleMenu: function() {
+      this.drawer = !this.drawer;
+    },
+  } 
 }
 </script>
