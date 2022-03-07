@@ -1,11 +1,26 @@
 <template>
   <v-navigation-drawer
-    v-model="drawer"
-    :dark="barColor !== 'rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)'"
+    v-model="drawer"    
+    :dark="barColor !== 'rgba(228, 226, 226, 1), rgba(255, 255, 255, 0.7)'"
+    :expand-on-hover="expandOnHover"
+    :right="$vuetify.rtl"
+    :src="barImage"
+    v-bind="$attrs"
     mobile-break-point="960"
     app
     width="260"
   >
+
+    <template v-slot:img="props">
+      <v-img
+        :gradient="`to bottom, ${barColor}`"
+        v-bind="props"
+      />
+    </template>
+    
+    <v-divider class="mb-1"></v-divider>
+
+   
     <v-list-item>
       <v-list-item-content
         class="display-1 center" 
@@ -16,7 +31,7 @@
 
     <v-divider class="mb-2"></v-divider>
 
-    <v-list dense>
+    <v-list nav dense>
       <v-list-item-group color="primary">
         <v-list-item
           v-for="(item, i) in items"

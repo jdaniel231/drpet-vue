@@ -1,3 +1,3 @@
 <template>
-  <h1>Cliente</h1>
+    <h1>Cliente</h1>
 </template>
