@@ -2,7 +2,17 @@
   <v-app>
     <Navbar />
     <Sidebar  />
-    <AppView />
+    <v-content>
+      <v-container fluid>
+        <v-layout align-content-center fill-height >
+          <v-flex m12>
+            <transition>
+              <AppView />
+            </transition>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-content>
   </v-app>
 </template>
 
@@ -28,3 +38,4 @@ export default {
   } 
 }
 </script>
+
