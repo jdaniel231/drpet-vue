@@ -20,30 +20,17 @@
 
 <script>
 import List from '../../../../components/clients/List.vue'
+import { mapState } from 'vuex'
 
 export default {
-  data() {
-    return {
-      clients: [],
-      client: {}
-    }
-  },
-  mounted(){
-    this.fecthClients()
-  },
-  methods: {
-    fecthClients() {
-      this.$http.get("http://localhost:3000/api/clients")
-        .then(response => {
-          console.log(response)
-          this.clients = response.data
-        })
-        .catch(err => console.log(err.response))
-    }
-  },
-
-  components: {
+  components:{
     List
-  }
+  },
+  computed: mapState({
+      clients: state => state.clients
+    }),
+  mounted() {
+    this.$store.dispatch('fecthClients')
+  },
 }
 </script>
