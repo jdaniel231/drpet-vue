@@ -27,7 +27,7 @@
 export default {
   props: {
     clients: Array
-  }
+  },
 }
 </script>
 
