@@ -2,7 +2,7 @@
   <v-app>
     <Navbar />
     <Sidebar  />
-    <v-content>
+    <v-main>
       <v-container fluid>
         <v-layout align-content-center fill-height >
           <v-flex m12>
@@ -12,7 +12,7 @@
           </v-flex>
         </v-layout>
       </v-container>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 

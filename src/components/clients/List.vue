@@ -4,13 +4,12 @@
       <thead>
         <tr>
           <th class="text-left" >Nome</th>
-          <th class="text-center" >Ação</th>
-          <th></th>
+          <th class="text-center">Ação</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="text-left" >Joao Daniel</td>
+        <tr v-for="item in clients" :key="item.id">
+          <td class="text-left">{{ item.name }} </td>
           <td class="text-center">
             <v-btn smal color="primary" class="mx-3">
               <v-icon>mdi-eye</v-icon>
@@ -23,4 +22,12 @@
   </v-simple-table>
   
 </template>
+
+<script>
+export default {
+  props: {
+    clients: Array
+  }
+}
+</script>
 
