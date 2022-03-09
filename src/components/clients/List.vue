@@ -11,7 +11,7 @@
         <tr v-for="item in clients" :key="item.id">
           <td class="text-left">{{ item.name }} </td>
           <td class="text-center">
-            <v-btn smal color="primary" class="mx-3">
+            <v-btn smal color="primary" class="mx-3" @click="show(item.id)">
               <v-icon>mdi-eye</v-icon>
             </v-btn>
           </td>
@@ -27,6 +27,11 @@
 export default {
   props: {
     clients: Array
+  },
+  methods: {
+    show: function(id) {
+      this.$emit('onClientShow', id)
+    }
   },
 }
 </script>
