@@ -13,7 +13,7 @@
 
     <v-card-title></v-card-title>
     <v-card-text>
-      <List :clients="clients" />
+      <List :clients="clients" @onClientShow="showClient" />
     </v-card-text>
   </v-card>
 </template>
@@ -23,6 +23,9 @@ import List from '../../../../components/clients/List.vue'
 import { mapState } from 'vuex'
 
 export default {
+  props: {
+    client: {}
+  },
   components:{
     List
   },
@@ -32,5 +35,10 @@ export default {
   mounted() {
     this.$store.dispatch('fecthClients')
   },
+  methods: {
+    showClient(id){
+      this.$router.push(`/client/${id}`);
+    },
+  }
 }
 </script>
