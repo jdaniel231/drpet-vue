@@ -20,25 +20,42 @@
 
 <script>
 import List from '../../../../components/clients/List.vue'
-import { mapState } from 'vuex'
+
+import Client from  '../../../../api/clients'
 
 export default {
-  props: {
-    client: {}
-  },
   components:{
-    List
+     List
   },
-  computed: mapState({
-      clients: state => state.clients
-    }),
+  data(){
+    return{
+      clients: []
+    }
+  },
   mounted() {
-    this.$store.dispatch('fecthClients')
+    Client.list().then(response => {
+      console.log(response.data)
+      this.clients = response.data
+    })
   },
   methods: {
     showClient(id){
       this.$router.push(`/client/${id}`);
     },
   }
+
+  // props: {
+  //   client: {}
+  // },
+  // components:{
+  //   List
+  // },
+  // computed: mapState({
+  //     clients: state => state.clients
+  //   }),
+  // mounted() {
+  //   this.$store.dispatch('fecthClients')
+  // },
+  
 }
 </script>
