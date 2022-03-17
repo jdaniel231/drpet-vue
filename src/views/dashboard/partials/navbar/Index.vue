@@ -18,7 +18,7 @@
       min-width="0"
       value="Logout"
     >
-      <v-icon>mdi-export</v-icon>
+      <v-icon>mdi-exit-to-app</v-icon>
      
     </v-btn>
   </v-app-bar>

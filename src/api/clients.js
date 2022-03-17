@@ -1,7 +1,12 @@
 import { http } from './config'
 
+const resource = '/clients'
+
 export default {
   list:() => {
-    return http.get('clients')
+    return http.get(`${resource}`)
   },
+  create:(client) => {
+    return http.post(`${resource}`, client)
+  }
 }
