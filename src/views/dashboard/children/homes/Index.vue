@@ -6,7 +6,7 @@
 
       <v-spacer></v-spacer>
       
-      <v-btn>
+      <v-btn @click="newClient">
         <v-icon>mdi-account-multiple-plus</v-icon>
       </v-btn>     
     </v-app-bar>
@@ -39,8 +39,11 @@ export default {
     })
   },
   methods: {
+    newClient() {
+      this.$router.push("/clients/new")
+    },
     showClient(id){
-      this.$router.push(`/client/${id}`);
+      this.$router.push(`/clients/${id}`);
     },
   }
 

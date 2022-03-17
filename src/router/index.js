@@ -3,7 +3,9 @@ import VueRouter from 'vue-router'
 import DashboardIndex from '../views/dashboard/Index.vue'
 import Home from '../views/dashboard/children/homes/Index.vue'
 import Clients from '../views/dashboard/children/clients/Index.vue'
+import NewClient from '../views/dashboard/children/clients/New.vue'
 import ClientsShow from '../views/dashboard/children/clients/Show.vue'
+
 
 
 Vue.use(VueRouter)
@@ -19,8 +21,13 @@ const routes = [
         path: '/clients/', name: 'Clintes', component: Clients
       },
       {
-        path: '/client/:id', name: 'Cliente', component: ClientsShow
-      }
+        path: '/clients/new', name: 'Cadastro cliente', component: NewClient
+      },
+      {
+        path: '/clients/:id', name: 'Cliente', component: ClientsShow
+      },
+      
+      
     ]
   },
 ]

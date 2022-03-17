@@ -14,6 +14,9 @@
             <v-btn smal color="primary" class="mx-3" @click="show(item.id)">
               <v-icon>mdi-eye</v-icon>
             </v-btn>
+            <v-btn smal color="red" class="mx-3">
+              <v-icon>mdi-delete</v-icon>
+            </v-btn>
           </td>
          
         </tr>
