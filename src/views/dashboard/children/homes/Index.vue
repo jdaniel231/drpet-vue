@@ -13,7 +13,7 @@
 
     <v-card-title></v-card-title>
     <v-card-text>
-      <List :clients="clients" @onClientShow="showClient" />
+      <List :clients="clients" @onClientShow="showClient" @onClientRemove="removeClient"/>
     </v-card-text>
   </v-card>
 </template>
@@ -33,18 +33,34 @@ export default {
     }
   },
   mounted() {
-    Client.list().then(response => {
-      console.log(response.data)
-      this.clients = response.data
-    })
+    this.list()
   },
   methods: {
+    list() {
+      Client.list().then(response => {
+        console.log(response.data)
+        this.clients = response.data
+      }).catch(e => {
+        console.log(e);
+      });
+    },
     newClient() {
       this.$router.push("/clients/new")
     },
     showClient(id){
       this.$router.push(`/clients/${id}`);
     },
+    removeClient(id){
+      if(confirm('Deseja excluir esse cliente?' ))
+      {
+        Client.remove(id).then(response => {
+          console.log(response.data);
+          this.list();
+        }).catch( e => {
+          console.log(e)
+        })
+      }
+    }
   }
 
   // props: {
