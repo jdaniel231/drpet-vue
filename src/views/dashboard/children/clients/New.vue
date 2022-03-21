@@ -33,10 +33,7 @@ export default {
   },
   methods: {
     save: function(){
-     Client.create(this.client).then(() => {
-        // if (response.status === 200) {
-        //   this.back();
-        // }   
+     Client.create(this.client).then(() => { 
         alert('Salvo com sucesso!')   
         this.back(); 
      });
